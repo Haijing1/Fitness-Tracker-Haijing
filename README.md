@@ -27,27 +27,36 @@ The new user name, password and other information will be wrote into Json file/d
 
 #### **Food Record Pages:**
 *Food Input Page*
-<img  src="./readme-images/example_1_FoodInputPage.png"  width="45%"  style="margin: 0 0.5rem"/>
+<p>
+    <img  src="./readme-images/example_1_FoodInputPage.png"  width="25%"  style="margin: 0 0.5rem"/>
+</p>
 *Food Search Page - might not have time to work on this page*
-  <img  src="./readme-images/example_option_SearchFoodPage.png"  width="45%"  style="margin: 0 0.5rem"  />
+<p>
+  <img  src="./readme-images/example_option_SearchFoodPage.png"  width="25%"  style="margin: 0 0.5rem"  />
+</p>
   *Food Information Page - might not have time to work on this page*
-  <p  style="text-align: center">
-<img  src="./readme-images/example_option_FoodInformationPage.png"  width="45%"  style="margin: 0 0.5rem"  />
-<img  src="./readme-images/example_option_FoodInformationPage_2.png"  width="45%"  style="margin: 0 0.5rem"  />
+<p  style="text-align: center">
+    <img  src="./readme-images/example_option_FoodInformationPage.png"  width="45%"  style="margin: 0 0.5rem"  />
+    <img  src="./readme-images/example_option_FoodInformationPage_2.png"  width="45%"  style="margin: 0 0.5rem"  />
 </p>
 *Food Detail Page - might not have time to work on this page*
-<img  src="./readme-images/example_option_FoodDetailPage.png"  width="45%"  style="margin: 0 0.5rem"  />
+<p>
+    <img  src="./readme-images/example_option_FoodDetailPage.png"  width="80%"  style="margin: 0 0.5rem"  />
+</p>
   
 #### **Exercise Record Pages:**
 *Exercise Input Page*
 On the side bar, list the weight and date the user used latest time when they did the same exercise 
 Add one more input for note about the feeling while doing the exercise
 choice upper body or lower body training on top left
-<img  src="./readme-images/example_exercise_input.png"  width="45%"  style="margin: 0 0.5rem"  />
+<p>
+<img  src="./readme-images/example_exercise_input.png"  width="90%"  style="margin: 0 0.5rem"  />
+</p>
 *Single Exercise Input Page - might not need this page*
 Add one more input for note about the feeling while doing the exercise
-<img  src="./readme-images/example_singleExercise_input.png"  width="45%"  style="margin: 0 0.5rem"  />
-
+<p>
+<img  src="./readme-images/example_singleExercise_input.png"  width="90%"  style="margin: 0 0.5rem"  />
+</p>
 ## Implementation
 
 List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
