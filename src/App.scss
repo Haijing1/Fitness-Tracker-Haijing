@@ -1,0 +1,151 @@
+// @use "./styles/partials/_typography" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/_mixins" as *;
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+
+:root {
+  font-family: "TitilliumWeb", sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  font-family: "TitilliumWeb", sans-serif;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+
+  @include tablet {
+    font-weight: 400;
+  }
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $light-grey;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.button {
+  @include button;
+
+  &--secondary {
+    background-color: $white;
+    border: 1px solid $cloud;
+    color: $slate;
+    flex: 1;
+
+    &:hover {
+      color: $instock-indigo;
+      border-color: $instock-indigo;
+      background-color: $white;
+    }
+
+    @include tablet {
+      flex: 0;
+    }
+  }
+
+  &--delete {
+    background-color: $red;
+    border: none;
+    flex: 1;
+
+    @include tablet {
+      flex: 0;
+    }
+  }
+
+  &--link {
+    border-radius: 0;
+    padding: 0;
+    background-color: unset;
+    color: $instock-indigo;
+    background-image: url("./assets/icons/chevron_right-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    background-size: 1rem;
+    text-decoration: none;
+    border: none;
+
+    &:hover {
+      background-color: unset;
+      text-decoration: underline;
+    }
+  }
+
+  &--close {
+    opacity: 1;
+    margin-left: 90%;
+    padding-top: 1rem;
+    background-color: transparent;
+
+    &:hover {
+      color: $instock-indigo;
+      border-color: $instock-indigo;
+      background-color: $white;
+    }
+
+    @include tablet {
+      padding-right: 1rem;
+      margin-left: 92%;
+    }
+
+    @include desktop {
+      padding-right: 1rem;
+      margin-left: 90%;
+    }
+  }
+}
+
+input,
+textarea {
+  border-radius: 1.25rem;
+  font-family: inherit;
+  height: 2.3rem;
+  background-color: $white;
+  color: $instock-black;
+  border: 1px solid $cloud;
+  padding: 0 1rem;
+  outline: none;
+  resize: none;
+
+  &:hover {
+    border-color: $instock-indigo;
+  }
+
+  &--error {
+    border-color: $red;
+  }
+
+  @include tablet {
+    height: 2.4rem;
+  }
+}
+
+.input {
+  &--search {
+    background-image: url("./assets/icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 90%;
+    padding-right: 2.5rem;
+  }
+
+  &--dropdown {
+    background-image: url("./assets/icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: 90%;
+    padding-right: 2.5rem;
+  }
+}

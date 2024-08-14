@@ -1,0 +1,179 @@
+@use "variables" as *;
+
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+@mixin font_page_header_mobile {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+@mixin font_subheader_mobile {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+@mixin font_labels_mobile {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+@mixin font_table-header_mobile {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  // color: $slate;
+}
+
+@mixin font_body_large_mobile {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+@mixin font_body_medium_mobile {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+@mixin font_body_small_mobile {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+@mixin font_page_header_tablet_desktop {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+@mixin font_subheader_tablet_desktop {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+@mixin font_labels_tablet_desktop {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+@mixin font_table-header-tablet_desktop {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  // color: $cloud;
+}
+
+@mixin font_body_large_tablet_desktop {
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+@mixin font_body_medium_tablet_desktop {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+@mixin font_body_small_tablet_desktop {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+// Mixin for page header font styles
+@mixin responsive_page_header_font {
+  @include font_page_header_mobile;
+
+  @include tablet {
+    @include font_page_header_tablet_desktop;
+  }
+}
+
+// Mixin for subheader font styles
+@mixin responsive_subheader_font {
+  @include font_subheader_mobile;
+
+  @include tablet {
+    @include font_subheader_tablet_desktop;
+  }
+}
+
+// Mixin for labels header font styles
+@mixin responsive_labels-header_font {
+  @include font_labels_mobile;
+
+  @include tablet {
+    @include font_labels_tablet_desktop;
+  }
+}
+
+// Mixin for table header font styles
+@mixin responsive_table-header_font {
+  @include font_table-header_mobile;
+
+  @include tablet {
+    @include font_table-header_tablet_desktop;
+  }
+}
+
+// Mixin for body font styles
+@mixin font_body_large_font {
+  @include font_body_large_mobile;
+
+  @include tablet {
+    @include font_body_large_tablet_desktop;
+  }
+}
+
+@mixin font_body_medium_font {
+  @include font_body_medium_mobile;
+
+  @include tablet {
+    @include font_body_medium_tablet_desktop;
+  }
+}
+
+@mixin font_body_small_font {
+  @include font_body_small_mobile;
+
+  @include tablet {
+    @include font_body_small_tablet_desktop;
+  }
+}
+
+@mixin button {
+  border-radius: 1.25rem;
+  font-family: inherit;
+  border: none;
+  height: 2.3rem;
+  // background-color: $instock-indigo;
+  // color: $white;
+  padding: 0 1rem;
+  font-weight: 600;
+
+  &:hover {
+    // background-color: $instock-black;
+  }
+
+  @include tablet {
+    height: 2.4rem;
+  }
+}
