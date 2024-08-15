@@ -2,6 +2,8 @@
 // import AddNewWarehousePage from '../AddNewWarehousePage/AddNewWarehousePage';
 // import EditWarehousePage from '../EditWarehousePage/EditWarehousePage';
 // import WarehouseDetailsPage from '../WarehouseDetailsPage/WarehouseDetailsPage';
+import "./HomePage.scss";
+import arrow_down from "../../assets/icons/arrow_down.png";
 import { useLocation, useParams } from 'react-router-dom'
 
 function HomePage() {
@@ -27,8 +29,15 @@ function HomePage() {
     // }
     return (
         <div>
-            <h2>Ready for workout?</h2>
-            <h2>Let’s start exercise!</h2>
+            <div className="starting-lines">
+                <h2 className="starting__item">Ready for workout?</h2>
+                <h2 className="starting__item">Let’s start exercise!</h2>
+                <img className="starting__icon" src={arrow_down} alt="arrow down icon" />
+            </div>
+            <div className="footer">
+                <button className="add-button">+</button>
+            </div>
+
         </div>
     )
 }
