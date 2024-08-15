@@ -17,7 +17,16 @@ function Header() {
 
   return (
     <header className="header">
-      <h1>Daily Workout Tracker</h1>
+      <h1 className="page__title">Daily Workout Tracker</h1>
+      <div className="date__list">
+        <div className="date__item">
+          <p className="date__month">Aug</p>
+          <p className="date__date">15</p>
+        </div>
+      </div>
+
+
+
       {/* <div className="header__logos">
         <NavLink to="/warehouses">
           <img

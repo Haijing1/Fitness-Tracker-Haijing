@@ -27,7 +27,8 @@ function HomePage() {
     // }
     return (
         <div>
-            <h1>Home page</h1>
+            <h2>Ready for workout?</h2>
+            <h2>Let’s start exercise!</h2>
         </div>
     )
 }

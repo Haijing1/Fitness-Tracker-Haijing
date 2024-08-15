@@ -1,20 +1,12 @@
 // @use "../../styles/partials/mixins" as *;
 // @use "../../styles/partials/variables" as *;
 // @use "../../styles/partials/typography" as *;
+.page__title {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
 
-// html {
-//   box-sizing: border-box;
-// }
-
-// *,
-// *:before,
-// *:after {
-//   box-sizing: inherit;
-// }
-
-// body {
-//   margin: 0;
-// }
 
 // .header {
 //   display: flex;
@@ -35,77 +27,4 @@
 
 //   @include desktop {
 //     padding: 0 8.125rem 5.5rem 8.125rem;
-//   }
-
-//   &__logos {
-//     display: flex;
-//     justify-content: center;
-//     margin-bottom: 1.5rem;
-
-//     @include tablet {
-//       margin-bottom: 0;
-//     }
-//   }
-
-//   &__logo-image {
-//     width: 8rem;
-//     height: 1.75rem;
-//   }
-
-//   &__list {
-//     list-style-type: none;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     margin: 0;
-//     padding-left: 0;
-//     @include font_labels_mobile;
-//     font-size: 0.65rem;
-
-//     @include tablet {
-//       justify-content: right;
-//       gap: 1.5rem;
-//       @include font_labels_tablet_desktop;
-//     }
-
-//     @include desktop {
-//       margin-right: 1rem;
-//     }
-//   }
-
-//   &__item {
-//     display: flex;
-//     text-align: center;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 0 2.65rem;
-//     height: 2rem;
-//     border-radius: 1.25rem;
-//     color: $cloud;
-
-//     &:hover {
-//       text-decoration: underline;
-//       color: $white;
-//       cursor: pointer;
-//     }
-
-//     @include tablet {
-//       margin: 0;
-//       width: 3.625rem;
-//       height: 2.375rem;
-//     }
-
-//     @include desktop {
-//     }
-
-//     &--active {
-//       background-color: $instock-black;
-//       color: $cloud;
-//       color: $white;
-
-//       @include tablet {
-//         width: 6.6875rem;
-//       }
-//     }
-//   }
-// }
+//   }}
