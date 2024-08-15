@@ -1,10 +1,8 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../src/components/Header/Header";
-
-// import Footer from "../src/components/Footer/Footer";
-// import InventoryPage from "./pages/InventoryPage/InventoryPage.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
+// import SingleDatePage from "./pages/SingleDatePage/SingleDatePage.jsx";
 
 function App() {
   return (
@@ -13,7 +11,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/workout/:id" element={<HomePage />} /> */}
+
+          {/* <Route path="/:date-id" element={<SingleDatePage />} /> */}
 
 
 
