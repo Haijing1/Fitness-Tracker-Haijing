@@ -13,30 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add-exercise" element={<AddExercisePage />} />
-          <Route path="/add-exercise/:dateId" element={<SingleDatePage />} />
-
-          {/* <Route path="/:date-id" element={<SingleDatePage />} /> */}
-
-
-
-
-
-
-
-
-
-
-          {/* <Route path="/add-inventory" element={<InventoryPage />} />
-
-          <Route path="/warehouses" element={<HomePage />} />
-          <Route path="/warehouse/:warehouseId" element={<HomePage />} />
-          <Route path="/warehouse/addNewWarehouse" element={<HomePage />} />
-          <Route path="/warehouse/editWarehouse/:warehouseId" element={<HomePage />} />
-          <Route path="/inventories" element={<InventoryPage />} />
-
-
-          <Route path="/inventories/:inventoryId" element={<InventoryPage />} />
-          <Route path="/inventories/update/:inventoryId" element={<InventoryPage />}/> */}
+          <Route path="/:dateId" element={<SingleDatePage />} />
         </Routes>
       </BrowserRouter>
     </>

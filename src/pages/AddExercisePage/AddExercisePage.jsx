@@ -93,10 +93,12 @@ function AddExercise({ inventoryList }) {
         }
         console.log(currentDate)
         // navigate("/date")
-        navigate(`${currentDate}`);
+        // navigate(`${currentDate}`);
+
         try {
             const resp = await axios.post(`${baseApiUrl}/workout`, requestBody);
             console.log(resp);
+            navigate(`/${currentDate}`);
         } catch (error) {
             console.log('Error :', error);
         }
