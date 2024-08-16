@@ -8,6 +8,7 @@ import axios from "axios";
 
 function AddExercise({ inventoryList }) {
     const navigate = useNavigate();
+    // const baseApiUrl = import.meta.env.VITE_API_URL;
     const baseApiUrl = import.meta.env.VITE_API_URL;
 
     //   const handleSubmit = async (event) => {
@@ -77,26 +78,21 @@ function AddExercise({ inventoryList }) {
         event.preventDefault();
         // console.log("nice");
         const requestBody = {
-            "id": "1",
-            "date": new Date(),
-            "workout": [
-                {
-                    "id": "1",
-                    "exercise": event.target.set.value,
-                    "sets": [
-                        {
-                            "id": "1",
-                            "weight": "event.weight.reps.value",
-                            "reps": "event.target.reps.value",
-                            "rest": "event.target.rest.value",
-                            "note": "event.target.rnote.value",
-                        }
-                    ]
-                }
-            ]
-        };
-        console.log(requestBody);
-    }
+            "exercise": event.target.exerciseName.value,
+            "setNumber": event.target.set.value,
+            "weight": event.target.weight.value,
+            "reps": event.target.reps.value,
+            "rest": event.target.rest.value,
+            "note": event.target.note.value,
+        }
+        try {
+            const resp = await axios.post(`${baseApiUrl}/workout`, requestBody);
+            console.log(resp);
+        } catch (error) {
+            console.log('Error :', error);
+        }
+
+    };
 
     return (
         <section className="add-exercise">
