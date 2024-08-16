@@ -10,7 +10,7 @@ function SingleDatePage() {
     useEffect(() => {
         async function getSingleDate(id) {
             try {
-                const response = await axios.get(`${baseApiUrl}/workout/${id}`);
+                const response = await axios.get(`${baseApiUrl}/api/${id}`);
                 console.log(response.data)
                 setWorkoutData(response.data)
             } catch (error) {

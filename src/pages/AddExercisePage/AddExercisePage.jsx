@@ -83,7 +83,7 @@ function AddExercise({ inventoryList }) {
         const currentDate = `${day}-${month}-${year}`;
         // console.log(currentDate)
         const requestBody = {
-            "date": ` ${currentDate}`,
+            "date": `${currentDate}`,
             "exercise": event.target.exerciseName.value,
             "setNumber": event.target.set.value,
             "weight": event.target.weight.value,
@@ -96,7 +96,7 @@ function AddExercise({ inventoryList }) {
         // navigate(`${currentDate}`);
 
         try {
-            const resp = await axios.post(`${baseApiUrl}/workout`, requestBody);
+            const resp = await axios.post(`${baseApiUrl}/api`, requestBody);
             console.log(resp);
             navigate(`/${currentDate}`);
         } catch (error) {
