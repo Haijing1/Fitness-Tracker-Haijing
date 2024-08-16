@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import axios from "axios"
+import "./SingleDatePage.scss";
 
-const SingleDatePage = () => {
+function SingleDatePage() {
     const date = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1; // The month index starts from 0
@@ -12,21 +13,22 @@ const SingleDatePage = () => {
     const [workoutData, setWorkoutData] = useState(null);
     const baseApiUrl = import.meta.env.VITE_API_URL;
     const { dateId } = useParams();
+    console.log(dateId)
 
-    // const handelDateChange = async (event) => {
-    //     const date = new Date(event.target.value);
-    //     const day = date.getDate();
-    //     const month = date.getMonth() + 1; // The month index starts from 0
-    //     const year = date.getFullYear();
-    //     const formetDate = `${day}-${month}-${year}`;
-    //     console.log(formetDate)
-    //     try {
-    //         const response = await axios.get(`${baseApiUrl}/workout/${formetDate}`);
-    //         setWorkoutData(response.data)
-    //     } catch (error) {
-    //         console.error("Error getting single date data:", error)
-    //     }
-    // }
+    const handelDateChange = async (event) => {
+        const date = new Date(event.target.value);
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // The month index starts from 0
+        const year = date.getFullYear();
+        const formetDate = `${day}-${month}-${year}`;
+        console.log(formetDate)
+        try {
+            const response = await axios.get(`${baseApiUrl}/workout/${formetDate}`);
+            setWorkoutData(response.data)
+        } catch (error) {
+            console.error("Error getting single date data:", error)
+        }
+    }
 
     // const workoutData = [{
     //     "id": "7eb112d7-37e0-4ef6-b96c-9612559e039a",
@@ -49,30 +51,38 @@ const SingleDatePage = () => {
     //         }
     //     ]
     // }]
-    useEffect(() => {
-        async function getSingleDate(id) {
-            try {
-                const response = await axios.get(`${baseApiUrl}/workout/${dateId}`);
-                setWorkoutData(response.data)
-            } catch (error) {
-                console.error("Error getting single date data:", error)
-            }
-        }
-        if (dateId) {
-            getSingleDate(dateId)
-        } else {
-            //   getSingleVideoData(defaultId)
-        }
-    }, [dateId]);
 
-    // console.log(workoutData)
+    // useEffect(() => {
+    //     async function getSingleDate(id) {
+    //         try {
+    //             const response = await axios.get(`${baseApiUrl}/workout/${dateId}`);
+    //             setWorkoutData(response.data)
+    //         } catch (error) {
+    //             console.error("Error getting single date data:", error)
+    //         }
+    //     }
+    //     if (dateId) {
+    //         getSingleDate(dateId)
+    //     } else {
+    //         //   getSingleVideoData(defaultId)
+    //     }
+    // }, [dateId]);
+    // console.log(dateId)
+    console.log(workoutData)
 
     return (
         <div>
-            <input type="datetime-local" className="type" name='inputDate' />
-            {/* onChange={handelDateChange} /> */}
+            <input type="datetime-local" className="type" name='inputDate'
+                onChange={handelDateChange} />
             <div>
-                <h2>{workoutData[0].workout[0].exercise}</h2>
+                <h2 className="exercise-name">{workoutData[0].workout[0].exercise}</h2>
+                <div className="keys">
+                    <p>Set</p>
+                    <p>Weight (lb)</p>
+                    <p>Reps</p>
+                    <p>Rest</p>
+                    <p>Note</p>
+                </div>
                 {workoutData[0].workout[0].sets.map((exercise) => {
                     return (
                         <div className="single-exercise">
@@ -90,5 +100,6 @@ const SingleDatePage = () => {
         </div>
     )
 }
+
 
 export default SingleDatePage
