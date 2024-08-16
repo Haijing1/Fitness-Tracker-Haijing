@@ -29,10 +29,12 @@ function HomePage() {
     // }
     return (
         <div>
-            <div className="starting-lines">
-                <h2 className="starting__item">Ready for workout?</h2>
-                <h2 className="starting__item">Let’s start exercise!</h2>
-                <img className="starting__icon" src={arrow_down} alt="arrow down icon" />
+            <div className="main-area">
+                <div className="starting">
+                    <h2 className="starting__item">Ready for workout?</h2>
+                    <h2 className="starting__item">Let’s start exercise!</h2>
+                    <img className="starting__icon" src={arrow_down} alt="arrow down icon" />
+                </div>
             </div>
             <div className="footer">
                 <button className="add-button">+</button>
