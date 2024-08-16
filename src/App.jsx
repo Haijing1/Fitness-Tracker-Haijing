@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add-exercise" element={<AddExercisePage />} />
-          <Route path="/date" element={<SingleDatePage />} />
+          <Route path="/add-exercise/:dateId" element={<SingleDatePage />} />
 
           {/* <Route path="/:date-id" element={<SingleDatePage />} /> */}
 

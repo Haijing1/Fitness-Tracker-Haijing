@@ -72,12 +72,18 @@ function AddExercise({ inventoryList }) {
     //     );
     //     if (isCancel) navigate("/inventories");
     //   };
-    const categories = [1, 2, 3, 4];
+    const categories = ["Pull up", "Rolling", "Chest press", "Shoulder press", "Pull down", , "Pull over", "High row", "Dumbbell fly"];
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // console.log("nice");
+        const date = new Date();
+        const day = date.getDate();
+        const month = date.getMonth() + 1; // The month index starts from 0
+        const year = date.getFullYear();
+        const currentDate = `${day}-${month}-${year}`;
+        // console.log(currentDate)
         const requestBody = {
+            "date": ` ${currentDate}`,
             "exercise": event.target.exerciseName.value,
             "setNumber": event.target.set.value,
             "weight": event.target.weight.value,
@@ -85,6 +91,9 @@ function AddExercise({ inventoryList }) {
             "rest": event.target.rest.value,
             "note": event.target.note.value,
         }
+        console.log(currentDate)
+        // navigate("/date")
+        navigate(`${currentDate}`);
         try {
             const resp = await axios.post(`${baseApiUrl}/workout`, requestBody);
             console.log(resp);

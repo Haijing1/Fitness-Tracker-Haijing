@@ -4,7 +4,8 @@
 // import WarehouseDetailsPage from '../WarehouseDetailsPage/WarehouseDetailsPage';
 import "./HomePage.scss";
 import arrow_down from "../../assets/icons/arrow_down.png";
-import { useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
     const location = useLocation();
@@ -37,7 +38,9 @@ function HomePage() {
                 </div>
             </div>
             <div className="footer">
-                <button className="add-button">+</button>
+                <Link to={`/add-exercise`}>
+                    <button className="add-button">+</button>
+                </Link>
             </div>
 
         </div>
