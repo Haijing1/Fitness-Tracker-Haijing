@@ -1,77 +1,14 @@
 import "./AddExercisePage.scss"
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 // import { useState, useEffect } from "react";
 import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
-// import Button from "../Button/Button";
 
-function AddExercise({ inventoryList }) {
+function AddExercise() {
     const navigate = useNavigate();
-    // const baseApiUrl = import.meta.env.VITE_API_URL;
     const baseApiUrl = import.meta.env.VITE_API_URL;
 
-    //   const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     try {
-    //       const requestBody = {
-    //         warehouse_id: inventoryList.find(
-    //           (item) => item.warehouse_name === values.warehouseName
-    //         ).warehouse_id,
-    //         item_name: values.itemName,
-    //         description: values.description,
-    //         category: values.categoryType,
-    //         status: values.selectedOption,
-    //         quantity: values.selectedOption !== "In Stock" ? 0 : values.quantity,
-    //       };
-    //       console.log(baseApiUrl, requestBody);
-    //       const response = await axios.post(
-    //         `${baseApiUrl}/inventories`,
-    //         requestBody
-    //       );
-    //       console.log("Response: ", response);
-    //       if (response.status === 201) {
-    //         alert(
-    //           "Inventory item added successfully.\nNote: You will be redirected to the Inventory page."
-    //         );
-    //         navigate("/inventories");
-    //       } else if (response.status === 400) {
-    //         if (response.data.message) {
-    //           alert(response.data.message);
-    //         } else {
-    //           alert("Please provide all information.");
-    //         }
-    //       } else {
-    //         if (response.data.message) {
-    //           alert(response.data.message);
-    //         } else {
-    //           alert("Something went wrong. Please try again.");
-    //         }
-    //       }
-    //     } catch (error) {
-    //       if (error.response.status === 400) {
-    //         if (error.response.data.message) {
-    //           alert(error.response.data.message);
-    //         } else {
-    //           alert("Please provide all information.");
-    //         }
-    //       } else {
-    //         if (error.response.data.message) {
-    //           alert(error.response.data.message);
-    //         } else {
-    //           alert("Error adding inventory.");
-    //         }
-    //       }
-    //     }
-    //   };
-
-    //   const handleCancel = (e) => {
-    //     e.preventDefault();
-    //     const isCancel = window.confirm(
-    //       "Are you sure you want to cancel?\nNote: You will be redirected to the inventory page."
-    //     );
-    //     if (isCancel) navigate("/inventories");
-    //   };
     const categories = ["Pull up", "Rolling", "Chest press", "Shoulder press", "Pull down", , "Pull over", "High row", "Dumbbell fly"];
 
     const handleSubmit = async (event) => {
@@ -81,7 +18,7 @@ function AddExercise({ inventoryList }) {
         const month = date.getMonth() + 1; // The month index starts from 0
         const year = date.getFullYear();
         const currentDate = `${day}-${month}-${year}`;
-        // console.log(currentDate)
+
         const requestBody = {
             "date": `${currentDate}`,
             "exercise": event.target.exerciseName.value,
@@ -92,8 +29,6 @@ function AddExercise({ inventoryList }) {
             "note": event.target.note.value,
         }
         console.log(currentDate)
-        // navigate("/date")
-        // navigate(`${currentDate}`);
 
         try {
             const resp = await axios.post(`${baseApiUrl}/api`, requestBody);
@@ -102,13 +37,11 @@ function AddExercise({ inventoryList }) {
         } catch (error) {
             console.log('Error :', error);
         }
-
     };
 
     return (
         <section className="add-exercise">
             <form className="add-exercise__form" onSubmit={handleSubmit}>
-                {/* <form className="add-exercise__form"> */}
                 <select
                     id="exerciseName"
                     name="exerciseName"
@@ -175,7 +108,7 @@ function AddExercise({ inventoryList }) {
                         ></input>
                     </div>
                 </div>
-                <div className="add-inventory__buttons">
+                <div>
                     {/* <Button
                         type="button"
                         className="add-inventory__cancel-button"
@@ -183,10 +116,15 @@ function AddExercise({ inventoryList }) {
                         onClick={handleCancel}
                         text="Cancel"
                     /> */}
-                    <button className="" type='submit' >Save</button>
-                    {/* text="+ Add Item" */}
+                    <button className="add-exercise__button" type='submit' >Save</button>
                 </div>
             </form>
+            <div className="footer">
+                <Link to={`/`}>
+                    <img src={backIcon} alt="BackIcon" className="backIcon" />
+                    {/* <button className="add-button">+</button> */}
+                </Link>
+            </div>
         </section>
     );
 }
