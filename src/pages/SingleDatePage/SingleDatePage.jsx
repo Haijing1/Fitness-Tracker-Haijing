@@ -57,7 +57,7 @@ function SingleDatePage() {
     //     ]
     // }]
 
-    console.log(workoutData)
+
 
     return (
         <div>
@@ -74,6 +74,12 @@ function SingleDatePage() {
                                     <h2 className="exercise-name">
                                         {workout.exercise}
                                     </h2>
+                                    <Link to={`/add-set/${workoutData[0].id}/${workout.id}/${workoutData[0].date}/`} >
+                                        <button className="add-set--button">+ Set</button>
+                                    </Link>
+                                    {console.log("workoutData:", workoutData)}
+                                    {console.log("workoutData.id:", workoutData[0].id)}
+                                    {console.log("workout.id:", workout.id)}
                                     <div className="keys">
                                         <p>Set</p>
                                         <p>Weight (lb)</p>
