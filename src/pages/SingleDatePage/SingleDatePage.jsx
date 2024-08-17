@@ -35,29 +35,6 @@ function SingleDatePage() {
     //     }
     // }
 
-    // const workoutData = [{
-    //     "id": "7eb112d7-37e0-4ef6-b96c-9612559e039a",
-    //     "timeStamp": "2024-08-15T23:29:27.482Z",
-    //     "date": "15-8-2024",
-    //     "workout": [
-    //         {
-    //             "id": "504a2f50-8ec5-41a8-9b2c-ced228791c21",
-    //             "exercise": "1",
-    //             "sets": [
-    //                 {
-    //                     "id": "71db1fea-59d3-4eb2-99e2-aeac01380d8a",
-    //                     "setNumber": "1",
-    //                     "reps": "d",
-    //                     "weight": "s",
-    //                     "rest": "f",
-    //                     "note": "f"
-    //                 }
-    //             ]
-    //         }
-    //     ]
-    // }]
-
-
 
     return (
         <div>
@@ -74,12 +51,9 @@ function SingleDatePage() {
                                     <h2 className="exercise-name">
                                         {workout.exercise}
                                     </h2>
-                                    <Link to={`/add-set/${workoutData[0].id}/${workout.id}/${workoutData[0].date}/`} >
+                                    <Link to={`/add-set/${workoutData[0].id}/${workout.id}/${workoutData[0].date}/${workout.exercise}`} >
                                         <button className="add-set--button">+ Set</button>
                                     </Link>
-                                    {console.log("workoutData:", workoutData)}
-                                    {console.log("workoutData.id:", workoutData[0].id)}
-                                    {console.log("workout.id:", workout.id)}
                                     <div className="keys">
                                         <p>Set</p>
                                         <p>Weight (lb)</p>
@@ -104,7 +78,7 @@ function SingleDatePage() {
                         })
                     })}
                     <div className="footer">
-                        <Link to={`/add-exercise`}>
+                        <Link to={`/add-exercise/${dateId}`}>
                             <button className="add-button">+</button>
                         </Link>
                     </div>

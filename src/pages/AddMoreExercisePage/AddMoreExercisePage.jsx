@@ -1,21 +1,22 @@
 // import "./AddExercisePage.scss"
 
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import axios from "axios";
 
-
-function AddSet() {
+function AddExercise() {
     const navigate = useNavigate();
     const baseApiUrl = import.meta.env.VITE_API_URL;
-    const { dateId, exerciseId, date, exerciseName } = useParams();
+    const { dateId } = useParams();
+
+    const categories = ["Pull up", "Rolling", "Chest press", "Shoulder press", "Pull down", , "Pull over", "High row", "Dumbbell fly"];
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const requestBody = {
-            "dateId": dateId,
-            "exerciseId": exerciseId,
+            "date": `${dateId}`,
+            "exercise": event.target.exerciseName.value,
             "setNumber": event.target.set.value,
             "weight": event.target.weight.value,
             "reps": event.target.reps.value,
@@ -24,9 +25,9 @@ function AddSet() {
         }
 
         try {
-            const resp = await axios.post(`${baseApiUrl}/api/addset`, requestBody);
+            const resp = await axios.post(`${baseApiUrl}/api/${dateId}/workout`, requestBody);
             console.log(resp);
-            navigate(`/${date}`);
+            navigate(`/${dateId}`);
         } catch (error) {
             console.log('Error :', error);
         }
@@ -35,8 +36,21 @@ function AddSet() {
 
     return (
         <section className="add-exercise">
-            <h2>{exerciseName}</h2>
             <form className="add-exercise__form" onSubmit={handleSubmit}>
+                <select
+                    id="exerciseName"
+                    name="exerciseName"
+                    className="add-exercise__name">
+                    {categories && categories?.map((category) => (
+                        <option
+                            className="custom-select-option"
+                            key={category}
+                            value={category}
+                        >
+                            {category}
+                        </option>
+                    ))}
+                </select>
                 <div className="add-exercise__list">
                     <div className="add-exercise__item">
                         <label className="add-exercise__label" htmlFor="Set">Set</label>
@@ -89,7 +103,7 @@ function AddSet() {
                         ></input>
                     </div>
                 </div>
-                <div>
+                <div className="">
                     {/* <Button
                         type="button"
                         className="add-inventory__cancel-button"
@@ -101,14 +115,13 @@ function AddSet() {
                 </div>
             </form>
             <div className="footer">
-                <Link to={`/${date}`}>
+                <Link to={`/${dateId}`}>
                     <img src={backIcon} alt="Back Icon" className="backIcon" />
                     {/* <button className="add-button">+</button> */}
                 </Link>
             </div>
-
         </section>
     );
 }
 
-export default AddSet;
+export default AddExercise;
