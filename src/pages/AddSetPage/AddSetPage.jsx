@@ -1,8 +1,8 @@
-// import "./AddExercisePage.scss"
+import "../AddExercisePage/AddExercisePage.scss"
 
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import backIcon from "../../assets/icons/arrow_back-24px.svg";
+import backIcon from "../../assets/icons/arrow_back-24px.png";
 import axios from "axios";
 
 
@@ -35,69 +35,71 @@ function AddSet() {
 
     return (
         <section className="add-exercise">
-            <h2>{exerciseName}</h2>
             <form className="add-exercise__form" onSubmit={handleSubmit}>
-                <div className="add-exercise__list">
-                    <div className="add-exercise__item">
-                        <label className="add-exercise__label" htmlFor="Set">Set</label>
-                        <input
-                            type="text"
-                            id="set"
-                            name="set"
-                            placeholder=""
-                            className="add-exercise__input"
-                        ></input>
+                <div className="add-exercise__inputs">
+                    <h2 className="exercise__name">{exerciseName}</h2>
+                    <div className="add-exercise__list">
+                        <div className="add-exercise__item">
+                            <label className="add-exercise__label" htmlFor="Set">Set</label>
+                            <input
+                                type="text"
+                                id="set"
+                                name="set"
+                                placeholder=""
+                                className="add-exercise__input"
+                            ></input>
+                        </div>
+                        <div className="add-exercise__item">
+                            <label className="add-exercise__label" htmlFor="Weight">Weight (lb)</label>
+                            <input
+                                type="text"
+                                id="weight"
+                                name="weight"
+                                placeholder=""
+                                className="add-exercise__input"
+                            ></input>
+                        </div>
+                        <div className="add-exercise__item">
+                            <label className="add-exercise__label" htmlFor="Reps">Reps</label>
+                            <input
+                                type="text"
+                                id="reps"
+                                name="reps"
+                                placeholder=""
+                                className="add-exercise__input"
+                            ></input>
+                        </div>
+                        <div className="add-exercise__item">
+                            <label className="add-exercise__label" htmlFor="Rest">Rest</label>
+                            <input
+                                type="text"
+                                id="rest"
+                                name="rest"
+                                placeholder=""
+                                className="add-exercise__input"
+                            ></input>
+                        </div>
+                        <div className="add-exercise__item">
+                            <label className="add-exercise__label" htmlFor="Note">Note</label>
+                            <input
+                                type="text"
+                                id="note"
+                                name="note"
+                                placeholder=""
+                                className="add-exercise__input"
+                            ></input>
+                        </div>
                     </div>
-                    <div className="add-exercise__item">
-                        <label className="add-exercise__label" htmlFor="Weight">Weight (lb)</label>
-                        <input
-                            type="text"
-                            id="weight"
-                            name="weight"
-                            placeholder=""
-                            className="add-exercise__input"
-                        ></input>
-                    </div>
-                    <div className="add-exercise__item">
-                        <label className="add-exercise__label" htmlFor="Reps">Reps</label>
-                        <input
-                            type="text"
-                            id="reps"
-                            name="reps"
-                            placeholder=""
-                            className="add-exercise__input"
-                        ></input>
-                    </div>
-                    <div className="add-exercise__item">
-                        <label className="add-exercise__label" htmlFor="Rest">Rest</label>
-                        <input
-                            type="text"
-                            id="rest"
-                            name="rest"
-                            placeholder=""
-                            className="add-exercise__input"
-                        ></input>
-                    </div>
-                    <div className="add-exercise__item">
-                        <label className="add-exercise__label" htmlFor="Note">Note</label>
-                        <input
-                            type="text"
-                            id="note"
-                            name="note"
-                            placeholder=""
-                            className="add-exercise__input"
-                        ></input>
-                    </div>
-                </div>
-                <div>
-                    {/* <Button
+                    <div className="add-exercise__btn-area">
+                        {/* <Button
                         type="button"
                         className="add-inventory__cancel-button"
                         icon=""
                         onClick={handleCancel}
                         text="Cancel"
                     /> */}
-                    <button className="add-exercise__button" type='submit' >Save</button>
+                        <button className="add-exercise__button" type='submit' >Save</button>
+                    </div>
                 </div>
             </form>
             <div className="footer">

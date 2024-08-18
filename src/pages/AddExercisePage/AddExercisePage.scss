@@ -1,16 +1,99 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.exercise__name {
+    padding-left: 0.8rem;
+}
+
+.add-exercise {
+    &__form {
+        // border: 1px solid red;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__inputs {
+        width: 25rem;
+
+        @include tablet {
+            width: 30rem;
+        }
+    }
+
+    &__name {
+        background-color: none;
+        border: none;
+        background: none;
+        box-shadow: none;
+        font: inherit;
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding-left: 0.8rem;
+        border-radius: 2rem;
+        width: 12rem;
+        color: $white;
+
+        option {
+            color: $black;
+        }
+    }
+
+    &__list {
+        margin: 1rem 0.5rem;
+        background-color: $blue;
+        border-radius: 0.5rem;
+
+    }
+
+    &__item {
+        padding: 0.5rem 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include tablet {
+            padding: 0.5rem 3rem;
+        }
+    }
+
+    &__lab {
+        width: 4.5rem;
+    }
+
+    &__input {
+        @include input;
+    }
+
+    &__btn-area {
+        padding: 1rem 1.5rem;
+        display: flex;
+        gap: 1rem;
+        justify-content: right;
+    }
+
+    &__button {
+        @include button;
+    }
+}
+
 .backIcon {
-    // color: white;
-    background-color: aqua;
-    // border: none;
+    background-color: $blue;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 2rem;
-    // color: $white;
-    // font-size: 3.5rem;
+    fill: $white;
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding-bottom: 1rem;
     z-index: 0;
     opacity: 1;
+
+    &:hover {
+        background-color: $light-blue;
+        width: 4rem;
+        height: 4rem;
+    }
 }

@@ -32,8 +32,6 @@ function Header() {
         </div>
       </div>
 
-
-
       {/* <div className="header__logos">
         <NavLink to="/warehouses">
           <img

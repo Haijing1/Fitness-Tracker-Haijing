@@ -163,18 +163,45 @@
   border-radius: 1.25rem;
   font-family: inherit;
   border: none;
-  weight: 2.6rem;
-  height: 1.2rem;
+  width: 4.5rem;
+  height: 1.6rem;
   background-color: $blue;
   color: $white;
   padding: 0 1rem;
   font-weight: 600;
 
-  // &:hover {
-  //   // background-color: $instock-black;
-  // }
+  &:hover {
+    background-color: $light-blue;
+    width: 5rem;
+    height: 2rem;
+  }
 
   // @include tablet {
   //   height: 2.4rem;
   // }
+}
+
+@mixin input {
+  border-radius: 1.25rem;
+  font-family: inherit;
+  height: 1.8rem;
+  width: 10rem;
+  background-color: $white;
+  color: $black;
+  border: 1px solid $grey;
+  padding: 0 1rem;
+  outline: none;
+  resize: none;
+
+  &:hover {
+    border-color: $blue;
+  }
+
+  &--error {
+    border-color: $red;
+  }
+
+  @include tablet {
+    height: 2rem;
+  }
 }
