@@ -42,41 +42,48 @@ function SingleDatePage() {
                 onChange={handelDateChange} /> */}
 
             {workoutData === null ? null :
-                <div>
+                <div className="main">
+                    <div >
+                        {workoutData.map((data) => {
+                            return data.workout.map((workout) => {
+                                return (
+                                    <div className="exercise__single" key={workout.id}>
+                                        <div className="exercise__head-line">
+                                            <h2 className="exercise__name">
+                                                {workout.exercise}
+                                            </h2>
+                                            <Link to={`/add-set/${workoutData[0].id}/${workout.id}/${workoutData[0].date}/${workout.exercise}`} >
+                                                <button className="add-set--button">+ Set</button>
+                                            </Link>
+                                        </div>
 
-                    {workoutData.map((data) => {
-                        return data.workout.map((workout) => {
-                            return (
-                                <div key={workout.id}>
-                                    <h2 className="exercise-name">
-                                        {workout.exercise}
-                                    </h2>
-                                    <Link to={`/add-set/${workoutData[0].id}/${workout.id}/${workoutData[0].date}/${workout.exercise}`} >
-                                        <button className="add-set--button">+ Set</button>
-                                    </Link>
-                                    <div className="keys">
-                                        <p>Set</p>
-                                        <p>Weight (lb)</p>
-                                        <p>Reps</p>
-                                        <p>Rest</p>
-                                        <p>Note</p>
+                                        <div className="exercise__keys">
+                                            <p className="exercise__single-key">Set</p>
+                                            <p className="exercise__single-key--weight">Weight (lb)</p>
+                                            <p className="exercise__single-key">Reps</p>
+                                            <p className="exercise__single-key">Rest</p>
+                                            <p className="exercise__single-key, exercise__single-key--note">Note</p>
+                                        </div>
+                                        <div className="exercise__sets">
+                                            {workout.sets.map((exercise) => {
+                                                return (
+                                                    <div className="exercise__values" key={exercise.id}>
+                                                        <p className="exercise__single-value">{exercise.setNumber}</p>
+                                                        <p className="exercise__single-value exercise__single-value--weight">{exercise.weight}</p>
+                                                        <p className="exercise__single-value">{exercise.reps}</p>
+                                                        <p className="exercise__single-value">{exercise.rest}</p>
+                                                        <p className="exercise__single-value exercise__single-value--note">{exercise.note}</p>
+                                                    </div>
+                                                )
+                                            })
+                                            }
+                                        </div>
+
                                     </div>
-                                    {workout.sets.map((exercise) => {
-                                        return (
-                                            <div className="single-exercise" key={exercise.id}>
-                                                <p className="">{exercise.setNumber}</p>
-                                                <p>{exercise.reps}</p>
-                                                <p>{exercise.weight}</p>
-                                                <p>{exercise.rest}</p>
-                                                <p>{exercise.note}</p>
-                                            </div>
-                                        )
-                                    })
-                                    }
-                                </div>
-                            )
-                        })
-                    })}
+                                )
+                            })
+                        })}
+                    </div>
                     <div className="footer">
                         <Link to={`/add-exercise/${dateId}`}>
                             <button className="add-button">+</button>
