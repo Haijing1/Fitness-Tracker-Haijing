@@ -98,6 +98,7 @@ Might add APIs for tranning names and images in the future
 
 ### Data
 Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
+```
 [
     {
         "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -150,7 +151,7 @@ Describe your data and the relationships between them. You can show this visuall
 		]
 	}
 ]
-
+```
   
 
 ### Endpoints
@@ -198,6 +199,7 @@ Response:
 
 ### Auth
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
+
 I will like to add Auth in the future
 
   
