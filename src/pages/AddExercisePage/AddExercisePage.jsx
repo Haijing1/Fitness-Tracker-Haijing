@@ -1,13 +1,14 @@
 import "./AddExercisePage.scss"
 
-import { useNavigate, Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import backIcon from "../../assets/icons/arrow_back-24px.png";
+import Header from "../../components/Header/Header";
 import axios from "axios";
 
 function AddExercise() {
     const navigate = useNavigate();
     const baseApiUrl = import.meta.env.VITE_API_URL;
+    const { dateId } = useParams();
 
     const categories = ["Pull up", "Rolling", "Chest press", "Shoulder press", "Pull down", , "Pull over", "High row", "Dumbbell fly"];
 
@@ -15,7 +16,7 @@ function AddExercise() {
         event.preventDefault();
         const date = new Date();
         const day = date.getDate();
-        const month = date.getMonth() + 1; // The month index starts from 0
+        const month = date.getMonth() + 1;
         const year = date.getFullYear();
         const currentDate = `${day}-${month}-${year}`;
 
@@ -28,11 +29,9 @@ function AddExercise() {
             "rest": event.target.rest.value,
             "note": event.target.note.value,
         }
-        console.log(currentDate)
 
         try {
             const resp = await axios.post(`${baseApiUrl}/api`, requestBody);
-            console.log(resp);
             navigate(`/${currentDate}`);
         } catch (error) {
             console.log('Error :', error);
@@ -41,6 +40,7 @@ function AddExercise() {
 
     return (
         <section className="add-exercise">
+            <Header dateId={dateId} />
             <form className="add-exercise__form" onSubmit={handleSubmit}>
                 <div className="add-exercise__inputs">
                     <select
@@ -89,7 +89,7 @@ function AddExercise() {
                             ></input>
                         </div>
                         <div className="add-exercise__item">
-                            <label className="add-exercise__label" htmlFor="Rest">Rest</label>
+                            <label className="add-exercise__label" htmlFor="Rest">Rest (sec)</label>
                             <input
                                 type="text"
                                 id="rest"
@@ -111,13 +111,6 @@ function AddExercise() {
                     </div>
 
                     <div className="add-exercise__btn-area">
-                        {/* <Button
-                        type="button"
-                        className="add-inventory__cancel-button"
-                        icon=""
-                        onClick={handleCancel}
-                        text="Cancel"
-                    /> */}
                         <button className="add-exercise__button" type='submit' >Save</button>
                     </div>
                 </div>
@@ -125,7 +118,6 @@ function AddExercise() {
             <div className="footer">
                 <Link to={`/`}>
                     <img src={backIcon} alt="BackIcon" className="backIcon" />
-                    {/* <button className="add-button">+</button> */}
                 </Link>
             </div>
         </section>
