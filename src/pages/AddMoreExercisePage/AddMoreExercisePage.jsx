@@ -1,7 +1,7 @@
 import "../AddExercisePage/AddExercisePage.scss"
 
 import { useNavigate, useParams, Link } from "react-router-dom";
-// import { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
 import backIcon from "../../assets/icons/arrow_back-24px.png";
 import axios from "axios";
 
@@ -26,7 +26,6 @@ function AddExercise() {
 
         try {
             const resp = await axios.post(`${baseApiUrl}/api/${dateId}/workout`, requestBody);
-            console.log(resp);
             navigate(`/${dateId}`);
         } catch (error) {
             console.log('Error :', error);
@@ -36,6 +35,7 @@ function AddExercise() {
 
     return (
         <section className="add-exercise">
+            <Header dateId={dateId} />
             <form className="add-exercise__form" onSubmit={handleSubmit}>
                 <div className="add-exercise__inputs">
                     <select
@@ -84,7 +84,7 @@ function AddExercise() {
                             ></input>
                         </div>
                         <div className="add-exercise__item">
-                            <label className="add-exercise__label" htmlFor="Rest">Rest</label>
+                            <label className="add-exercise__label" htmlFor="Rest">Rest (sec)</label>
                             <input
                                 type="text"
                                 id="rest"
@@ -105,13 +105,6 @@ function AddExercise() {
                         </div>
                     </div>
                     <div className="add-exercise__btn-area">
-                        {/* <Button
-                        type="button"
-                        className="add-inventory__cancel-button"
-                        icon=""
-                        onClick={handleCancel}
-                        text="Cancel"
-                    /> */}
                         <button className="add-exercise__button" type='submit' >Save</button>
                     </div>
                 </div>
@@ -119,7 +112,6 @@ function AddExercise() {
             <div className="footer">
                 <Link to={`/${dateId}`}>
                     <img src={backIcon} alt="Back Icon" className="backIcon" />
-                    {/* <button className="add-button">+</button> */}
                 </Link>
             </div>
         </section>

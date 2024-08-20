@@ -3,13 +3,10 @@
 @use "../../styles/partials/typography" as *;
 
 .starting {
-    // width: 100%;
-    // height: 100%;
-    // border: 1px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 4.5rem 1rem;
+    padding: 5rem 1rem;
 
     &__item {
         font-size: 1.8rem;

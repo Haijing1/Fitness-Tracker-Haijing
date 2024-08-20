@@ -1,7 +1,7 @@
 import "../AddExercisePage/AddExercisePage.scss"
 
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
 import backIcon from "../../assets/icons/arrow_back-24px.png";
 import axios from "axios";
 
@@ -25,7 +25,6 @@ function AddSet() {
 
         try {
             const resp = await axios.post(`${baseApiUrl}/api/addset`, requestBody);
-            console.log(resp);
             navigate(`/${date}`);
         } catch (error) {
             console.log('Error :', error);
@@ -35,6 +34,7 @@ function AddSet() {
 
     return (
         <section className="add-exercise">
+            <Header dateId={date} />
             <form className="add-exercise__form" onSubmit={handleSubmit}>
                 <div className="add-exercise__inputs">
                     <h2 className="exercise__name">{exerciseName}</h2>
@@ -70,7 +70,7 @@ function AddSet() {
                             ></input>
                         </div>
                         <div className="add-exercise__item">
-                            <label className="add-exercise__label" htmlFor="Rest">Rest</label>
+                            <label className="add-exercise__label" htmlFor="Rest">Rest (sec)</label>
                             <input
                                 type="text"
                                 id="rest"
@@ -91,13 +91,6 @@ function AddSet() {
                         </div>
                     </div>
                     <div className="add-exercise__btn-area">
-                        {/* <Button
-                        type="button"
-                        className="add-inventory__cancel-button"
-                        icon=""
-                        onClick={handleCancel}
-                        text="Cancel"
-                    /> */}
                         <button className="add-exercise__button" type='submit' >Save</button>
                     </div>
                 </div>
@@ -105,10 +98,8 @@ function AddSet() {
             <div className="footer">
                 <Link to={`/${date}`}>
                     <img src={backIcon} alt="Back Icon" className="backIcon" />
-                    {/* <button className="add-button">+</button> */}
                 </Link>
             </div>
-
         </section>
     );
 }
