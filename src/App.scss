@@ -1,0 +1,39 @@
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/_mixins" as *;
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+
+:root {
+  font-family: "TitilliumWeb", sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  font-family: "TitilliumWeb", sans-serif;
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+
+  @include tablet {
+    font-weight: 400;
+  }
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $black;
+  color: $white;
+}
+
+h1 {
+  font-size: 1.25rem;
+  line-height: 1.1;
+  font-weight: 600;
+}
