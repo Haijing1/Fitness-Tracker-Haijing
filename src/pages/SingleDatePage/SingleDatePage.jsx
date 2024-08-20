@@ -39,8 +39,8 @@ function SingleDatePage() {
             {Array.isArray(workoutData) && workoutData.length === 0 && <EmptyPage />}
 
             {workoutData === null ? null :
-                <div className="main">
-                    <div >
+                <div >
+                    <div className="main">
                         {workoutData.map((data) => {
                             return data.workout.map((workout) => {
                                 return (
