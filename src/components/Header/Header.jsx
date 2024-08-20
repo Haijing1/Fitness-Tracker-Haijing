@@ -91,14 +91,13 @@ function Header(props) {
   return (
     <header className="header">
       <h1 className="page__title">Daily Workout Tracker</h1>
-      {/* <input type="date" className="type" name="inputDate" onChange={handleChange} /> */}
+      <input type="date" className="type" name="inputDate" onChange={handleChange} />
       <div className="date__list">
         {dateList === null ? null :
           dateList.map((item) => {
             const isActive = item.date === props.dateId ? 'date__item--active' : '';
             return (
               <div className={`date__item ${isActive}`} key={item.id}>
-                {/* <div className="date__item" key={item.id}> */}
                 <Link to={`/${item.date}`} >
                   <h2 className="date__month" >{item.mm}</h2>
                   <h3 className="date__date">{item.dd}</h3>
@@ -108,9 +107,8 @@ function Header(props) {
           })
         }
         {newDate === null ? null :
-          <div className={`date__item ${!props.dateId ? 'date__item--active' : ''}`}>
+          <div className={`date__item ${newDate.date === props.dateId || !props.dateId ? 'date__item--active' : ''}`}>
             <Link to={`/${newDate.date}`} >
-              {/* <h3 className="date__date">Today</h3> */}
               <h2 className="date__month">{newDate.mm}</h2>
               <h3 className="date__date">{newDate.dd}</h3>
             </Link>
