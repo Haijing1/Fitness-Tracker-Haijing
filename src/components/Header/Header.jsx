@@ -91,7 +91,9 @@ function Header(props) {
   return (
     <header className="header">
       <h1 className="page__title">Daily Workout Tracker</h1>
-      <input type="date" className="type" name="inputDate" onChange={handleChange} />
+      <div className="date-input">
+        <input type="date" name="inputDate" onChange={handleChange} />
+      </div>
       <div className="date__list">
         {dateList === null ? null :
           dateList.map((item) => {
