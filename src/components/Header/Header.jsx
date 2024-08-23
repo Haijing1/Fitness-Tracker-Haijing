@@ -8,7 +8,9 @@ function Header(props) {
   const [dateList, setDateList] = useState(null);
   const [newDate, setNewDate] = useState(null);
   const baseApiUrl = import.meta.env.VITE_API_URL;
-
+  const [currentDate, setCurrentDate] = useState(null);
+  const { dateId } = useParams();
+  // console.log(dateId)
   function getNewDate() {
     let today = new Date();
     let newDD = today.getDate();
@@ -18,7 +20,8 @@ function Header(props) {
     return {
       mm: months[newMM - 1],
       dd: newDD,
-      date: `${newDD}-${newMM}-${newYY}`
+      date: `${newDD}-${newMM}-${newYY}`,
+      timeStamp: today.toISOString()
     }
   }
 
@@ -73,9 +76,41 @@ function Header(props) {
           mm: result.month
         };
       });
-      setDateList(dateAndTimeStamps);
+
+      const foundToday = dateAndTimeStamps.find((item) => {
+        if (item.date === getNewDate().date) {
+          return true
+        }
+      })
+
+      if (!foundToday) {
+        dateAndTimeStamps.push(getNewDate())
+      }
+
+      const sortedList = dateAndTimeStamps.sort(function (a, b) {
+        // Split the date strings into day, month, and year components
+        const [dayA, monthA, yearA] = a.date.split('-').map(Number);
+        const [dayB, monthB, yearB] = b.date.split('-').map(Number);
+
+        // Create Date objects for comparison
+        const dateA = new Date(yearA, monthA - 1, dayA); // monthA - 1 because months are zero-indexed
+        const dateB = new Date(yearB, monthB - 1, dayB);
+
+        return dateA - dateB; // Compare the dates
+      });
+      console.log(sortedList)
+      setDateList(sortedList);
     }
-  }, [workoutData]);
+  }, [workoutData, dateId]);
+
+  useEffect(() => {
+    if (!dateId) {
+      setCurrentDate(getNewDate().date)
+    } else {
+      console.log(dateId)
+      setCurrentDate(dateId)
+    }
+  }, [dateId])
 
   const navigate = useNavigate();
 
@@ -91,11 +126,14 @@ function Header(props) {
   return (
     <header className="header">
       <h1 className="page__title">Daily Workout Tracker</h1>
-      <input type="date" className="type" name="inputDate" onChange={handleChange} />
+      <div className="date-input">
+        <input type="date" name="inputDate" onChange={handleChange} />
+      </div>
       <div className="date__list">
         {dateList === null ? null :
           dateList.map((item) => {
-            const isActive = item.date === props.dateId ? 'date__item--active' : '';
+            const isActive = item.date === currentDate ? 'date__item--active' : '';
+            // console.log(currentDate)
             return (
               <div className={`date__item ${isActive}`} key={item.id}>
                 <Link to={`/${item.date}`} >
@@ -106,14 +144,14 @@ function Header(props) {
             );
           })
         }
-        {newDate === null ? null :
+        {/* {newDate === null ? null :
           <div className={`date__item ${newDate.date === props.dateId || !props.dateId ? 'date__item--active' : ''}`}>
             <Link to={`/${newDate.date}`} >
               <h2 className="date__month">{newDate.mm}</h2>
               <h3 className="date__date">{newDate.dd}</h3>
             </Link>
           </div>
-        }
+        } */}
       </div>
     </header>
   );
